@@ -1,0 +1,88 @@
+//Color scheme
+$primary-red: #D4212A
+$primary-dark-red: #A81A21
+$primary-light-red: #fff4f4
+$primary-blue: #4EC2DF
+$primary-light-blue: #7FD2E6
+$primary-light-green: #00BD9D
+$primary-semi-light-green: #f4fffd
+$primary-dark-green: #388E3C
+$primary-white: #FFFFFF
+$primary-grape: #5D3754
+$primary-light-grape: #D6CCD4
+$primary-dark-grey: #6D7A96
+$primary-light-grey: #E2E4EA
+$primary-black: #1E283C
+$primary-extra-light-gray: #F5F5F5
+$primary-indigo: #3F51B5
+$primary-pink: #E91E63
+$primary-yellow: #ECF598
+$primary-orange: #e07f00
+$primary-light-orange: #fff6eb
+$upward-arrow-color: #00E639
+$downward-arrow-color: $primary-red
+$primary-light-brown: #ABAAAA
+$border-color: #c4c4c4
+$text-color: #424F68
+$header-color: #F8F7F2
+//Reskin
+$primary-green: #285557
+$primary-solid-green: #204446
+$primary-bg-alert : #FFEBE5
+$primary-alert : #FE6232
+
+//Font sizes
+$heading: 40px
+$subheading: 28px
+$title: 24px
+$subtitle: 20px
+$text: 18px
+$text-small: 16px
+$text-tiny: 12px
+$label: 14px
+
+//Font colors
+$font-primary-grey: #424F68
+$font-primary-light-grey: #9BA1A9
+$font-primary-black: #1E283D
+
+//Table colors
+$table-dark-grey: #E6E6E6
+$table-medium-grey: #E5E5E5
+$table-light-grey: #EEEEEE
+$table-light-green: #D0E9C6
+$table-dark-green: #B2DBA1
+
+// Transition
+$ios-transition: cubic-bezier(0.16, 1, 0.3, 1)
+$windows-transition: cubic-bezier(0.86,0,0.07,1)
+
+// Media size
+$media-list: 'xs' '(max-width: 576px)', 'sm' '(max-width: 768px)', 'sm-min' '(min-width: 768px)', 'md' '(max-width: 992px)', 'md-min' '(min-width: 992px)', 'lg' '(max-width: 1200px)', 'xl' '(max-width: 1400px)', 'xxl' '(min-width: 1400px)'
+@mixin media($type)
+  @each $media in $media-list
+    @if(nth($media,1) == $type)
+      @media #{nth($media,2)}
+        @content
+
+// Shadows
+@mixin floating-shadow
+  box-shadow: 0 0px 6px rgba(0,0,0,0.2)
+@mixin shadow-down
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1)
+@mixin shadow-up
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.1)
+
+// Color classes
+.error-color
+  color: $primary-red!important
+  fill: $primary-red!important
+.warning-color
+  color: $primary-alert!important
+  fill: $primary-alert!important
+.success-color
+  color: $primary-light-green!important
+  fill: $primary-light-green!important
+.nelson-color
+  color: $primary-green!important
+  fill: $primary-green!important

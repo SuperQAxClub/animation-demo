@@ -1,0 +1,107 @@
+@import "./variables"
+
+@keyframes rotation
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+.modal-container-2
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
+  padding: 15px
+  box-sizing: border-box
+  .modal-backdrop
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.4)
+    transition: all 500ms $windows-transition
+    z-index: 1
+    opacity: 0
+    &.open-manual
+      opacity: 1
+  .modal-content-container
+    position: absolute
+    transform: translate(-50%, -100%)
+    top: calc(100% - 15px)
+    left: 50%
+    z-index: 10
+    transition: all 500ms $windows-transition
+    will-change: transform, top, left
+    .modal-content
+      position: relative
+      background: #fff
+      border-radius: 10px
+      transition: all 500ms $windows-transition
+      overflow: hidden
+      transform: translateY(calc(100% + 30px))
+      opacity: 0
+      @include floating-shadow
+      &.open-manual
+        opacity: 1
+        transform: none
+      .content-loading
+        position: absolute
+        display: grid
+        place-items: center
+        height: 100%
+        width: 100%
+        height: 100%
+        transition: all 500ms $windows-transition
+        opacity: 0
+        pointer-events: none
+        &.show
+          opacity: 1
+          pointer-events: all
+        .loading-container
+          display: flex
+          align-items: center
+          gap: 15px
+          .loading
+            width: 40px
+            height: 40px
+            border: 5px solid blue
+            border-bottom-color: transparent!important
+            border-right-color: transparent!important
+            border-radius: 50%
+            display: inline-block
+            box-sizing: border-box
+            animation: rotation 0.5s linear infinite
+          .loading-text
+            font-size: 16pt
+            font-weight: 600
+      .content
+        width: 600px
+        transition: all 500ms $windows-transition
+        opacity: 0
+        &.show
+          opacity: 1
+        .content-header
+          border-bottom: 1px solid #c4c4c4
+          padding: 10px 15px
+          font-size: 20pt
+          font-weight: 600
+          display: flex
+          align-items: center
+          .header-title
+            flex: 1
+        .content-body
+          padding: 10px 15px
+          font-size: 14pt
+          overflow-y: auto
+          max-height: 70vh
+      &.full-height
+        height: auto!important
+    &.open-manual
+      transform: translate(-50%, -50%)
+      top: 50%
+      left: 50%
+  &.open-manual
+    pointer-events: all
